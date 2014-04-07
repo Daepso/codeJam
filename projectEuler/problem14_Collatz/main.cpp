@@ -2,13 +2,13 @@
 
 #include <iostream>
 
-#define SIZE 1000000
+#define SIZE 10000000
 
 long * collatzTable;
 
 long collatzSequence(long i)
 {
-  if(i <= SIZE && collatzTable[i-1] != -1)
+  if(i <= SIZE && collatzTable[i-1] != 0)
   {
     return collatzTable[i-1];
   }
@@ -36,21 +36,17 @@ long collatzSequence(long i)
   }
 }
 
-int main(int argc, char * argv[])
+int main()
 {
   collatzTable = new long[SIZE];
 
   /* Init */
   collatzTable[0] = 1;
-  for(long i=1; i<SIZE; i++)
-  {
-    collatzTable[i] = -1;
-  }
 
   /* Compute */
   long max = -1;
   long maxI = -1;
-  for(long i=1; i<=SIZE; i++)
+  for(long i=SIZE-1; i>1; i--)
   {
     long res = collatzSequence(i);
     if(res > max)
@@ -62,7 +58,7 @@ int main(int argc, char * argv[])
 
   delete collatzTable;
 
-  std::cout << "The longuest chain start from " << maxI << " and is " << max << std::endl;
+  std::cout << "The longuest chain starts from " << maxI << " and is " << max << "long" << std::endl;
 
   return 0;
 }
