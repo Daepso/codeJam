@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#define SIZE 10000000
+#define SIZE 1000000
 
 long * collatzTable;
 
@@ -58,7 +58,7 @@ int main()
 
   delete collatzTable;
 
-  std::cout << "The longuest chain starts from " << maxI << " and is " << max << "long" << std::endl;
+  std::cout << "The longuest chain starts from " << maxI << " and is " << max << " long" << std::endl;
 
   return 0;
 }
