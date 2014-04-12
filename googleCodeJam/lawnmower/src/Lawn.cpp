@@ -2,6 +2,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include "stdio.h"
 
   Lawn::Lawn(int a, int b)
 :heightGrid(NULL), isPossibleGrid(NULL),
@@ -81,7 +82,7 @@ void Lawn::display()
   for(int i=0; i<n; i++)
   {
     for(int j=0; j<m; j++)
-      std::cout << heightGrid[i][j];
+      printf("%2d ",heightGrid[i][j]);
     std::cout << std::endl;
   }
 }
