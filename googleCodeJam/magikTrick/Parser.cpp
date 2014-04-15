@@ -29,19 +29,23 @@ std::vector<int> * Parser::load(const std::string& filename)
   int testCaseNumber;
   s >> testCaseNumber;
 
+  /* For each test case */
   for(int i=0; i<testCaseNumber; i++)
   {
     tmpList.clear();
     tmpList2.clear();
+
+    /* For each draft */
     for(int j=0; j<2; j++)
     {
+      /* Get the choosen row */
       int n;
-
       getline(file, line);
       {
         std::stringstream s(line);
         s >> n;
       }
+      /* Skip line */
       for(int k=1; k<n; k++)
       {
         getline(file, line);
@@ -49,7 +53,6 @@ std::vector<int> * Parser::load(const std::string& filename)
 
       getline(file, line);
       std::stringstream s(line);
-
       if(j == 0)
       {
         for(int k=0; k<4; k++)
@@ -86,8 +89,9 @@ std::vector<int> * Parser::load(const std::string& filename)
         {
           answerdList->push_back(tmpList2[0]);
         }
-       }
+      }
 
+      /* Skip line */
       for(int k=n; k<4; k++)
       {
         getline(file, line);
